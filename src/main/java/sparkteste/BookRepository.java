@@ -1,5 +1,5 @@
 package sparkteste;
 
 public interface BookRepository {
-	Book getByIsbn(String isbn);
+    Book getByIsbn(Book isbn);
 }

@@ -5,19 +5,18 @@ import static spark.Spark.staticFileLocation;
 
 public class WebConfig {
 
-	private MyService service;
+    private MyService service;
 
-	public WebConfig(final MyService service) {
-		this.service = service;
-		staticFileLocation("/public");
+    public WebConfig(final MyService service) {
+        this.service = service;
+        staticFileLocation("/public");
 
-		get("/hello", (req, res) -> {
-			Thread.sleep(1000);
-			this.service.run();
-			return "Hello teste!";
-		});
+        get("/hello", (req, res) -> {
+            Thread.sleep(1000);
+            this.service.run();
+            return "Hello teste!";
+        });
 
-		System.out.println(this.service);
-	}
+    }
 
 }

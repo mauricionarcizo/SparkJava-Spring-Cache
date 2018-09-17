@@ -11,19 +11,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyService {
 
-	private static final Logger logger = LoggerFactory.getLogger(MyService.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyService.class);
 
-	@Autowired
-	private BookRepository bookRepository;
+    @Autowired
+    private BookRepository bookRepository;
 
-	public void run() {
-		logger.info(".... Fetching books");
-		logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
-		logger.info(Date.from(Instant.now()).toString() + "isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
-		logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
-		logger.info(Date.from(Instant.now()).toString() + "isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
-		logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
-		logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
-	}
+    public void run() {
+        logger.info(".... Fetching books");
+
+        logger.info(Date.from(Instant.now()).toString() + "isbn111-1234 -->" + bookRepository.getByIsbn(new Book("isbn-1234", "teste")));
+        logger.info(Date.from(Instant.now()).toString() + "isbn-4567 -->" + bookRepository.getByIsbn(new Book("isbn-4567", "teste")));
+        logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn(new Book("isbn-1234", "teste")));
+        logger.info(Date.from(Instant.now()).toString() + "isbn-4567 -->" + bookRepository.getByIsbn(new Book("isbn-4567", "teste")));
+        logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn(new Book("isbn-1234", "teste")));
+        logger.info(Date.from(Instant.now()).toString() + "isbn-1234 -->" + bookRepository.getByIsbn(new Book("isbn-1234", "teste")));
+    }
 
 }

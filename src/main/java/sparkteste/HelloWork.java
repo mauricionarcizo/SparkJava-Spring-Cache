@@ -1,5 +1,6 @@
 package sparkteste;
 
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.Cache;
@@ -19,25 +20,25 @@ import com.google.common.cache.CacheBuilder;
 @ComponentScan({ "sparkteste" })
 @EnableCaching
 public class HelloWork {
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
 
-		try (final AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(HelloWork.class)) {
-			new WebConfig(ctx.getBean(MyService.class));
-			ctx.registerShutdownHook();
-		}
-	}
+        try (final AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(HelloWork.class)) {
+            new WebConfig(ctx.getBean(MyService.class));
+            ctx.registerShutdownHook();
+        }
+    }
 
-	@Primary
-	@Bean
-	public CacheManager jdkCacheManager() {
-		return new ConcurrentMapCacheManager() {
+    @Primary
+    @Bean
+    public CacheManager sadasdsa() {
+        return new ConcurrentMapCacheManager() {
 
-			@Override
-			protected Cache createConcurrentMapCache(final String name) {
-				return new ConcurrentMapCache(name, CacheBuilder.newBuilder().expireAfterAccess(30, TimeUnit.SECONDS)
-						.maximumSize(100).build().asMap(), false);
-			}
-		};
-	}
+            @Override
+            protected Cache createConcurrentMapCache(final String name) {
+                final ConcurrentMap<Object, Object> asMap = CacheBuilder.newBuilder().expireAfterAccess(30, TimeUnit.SECONDS).maximumSize(100).build().asMap();
+                return new ConcurrentMapCache(name, asMap, false);
+            }
+        };
+    }
 
 }
