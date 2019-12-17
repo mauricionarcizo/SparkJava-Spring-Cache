@@ -14,7 +14,7 @@
     <hsqldb.version>2.5.0</hsqldb.version>
 		<dbcp.version>2.6.0</dbcp.version>
 		<commons.beanutils.version>1.9.3</commons.beanutils.version>
-		<slf4j.version>1.7.26</slf4j.version>
+		<slf4j.version>1.7.30</slf4j.version>
 	</properties>
 
 	<dependencies>
