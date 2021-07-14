@@ -12,7 +12,7 @@
     <spark.version>2.9.3</spark.version>
 		<slf4j.version>1.7.31</slf4j.version>
 		<commons.beanutils.version>1.9.4</commons.beanutils.version>
-    <spring.version>5.3.7</spring.version>
+    <spring.version>5.3.9</spring.version>
     <hsqldb.version>2.6.0</hsqldb.version>
 		<dbcp.version>2.8.0</dbcp.version>
 	</properties>
